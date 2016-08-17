@@ -4,39 +4,57 @@ require('shelljs/global');
 exports.cmd = function (req, res, next) {
     var cmd = req.params.cmd
     var query = req.query;
-    var arq = query['arq'];
+    var arg = query['arg'];
 
-    var cmdres = run_cmd(cmd, arq);
+    var cmdres = run_cmd(cmd, arg);
 
     res.send(cmdres);
 };
 
 exports.ping = function (req, res, next) {
     var query = req.query;
-    var ip = query['ip'];
+    var address = query['address'];
 
-    if (!ip) {
-        res.send("Parameter <ip> not set")
+    if (!address) {
+        res.send("Parameter <address> not set")
     }
 
-    if (hasWhiteSpace(ip)) {
+    if (hasWhiteSpace(address)) {
         res.send("Unallowed parameter used");
     };
 
-    var arg = "-c 1 " + ip;
+    var arg = "-c 1 " + address;
     console.log(arg);
 
     res.send(run_cmd("ping", arg));
-} 
+}
+
+exports.nslookup = function (req, res, next) {
+    var query = req.query;
+    var address = query['address'];
+
+    if (!address) {
+        res.send("Parameter <address> not set")
+    }
+
+    if (hasWhiteSpace(address)) {
+        res.send("Unallowed parameter used");
+    };
+
+    var arg = "-query=any -timeout=10 " + address;
+    console.log(arg);
+
+    res.send(run_cmd("nslookup", arg));
+}
 
 function hasWhiteSpace(s) {
   return s.indexOf(' ') >= 0;
 }
 
-function run_cmd(cmd, arq) {
+function run_cmd(cmd, arg) {
     var cmdreq = cmd;
     cmdreq += " ";
-    cmdreq += arq;
+    cmdreq += arg;
 
     result = exec(cmdreq);
        

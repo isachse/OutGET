@@ -22,6 +22,7 @@ app.all('*', function(req, res, next) {
 
 app.get('/exec/:cmd', auth.checkAuth, exec.cmd);
 app.get('/ping', auth.checkAuth, exec.ping);
+app.get('/nslookup', auth.checkAuth, exec.nslookup);
 
 app.set('port', process.env.PORT || 80);
 
