@@ -1,4 +1,4 @@
-var auth            = require('auth'),
+var auth            = require('./auth'),
     bodyParser      = require('body-parser'),
     exec            = require('./routes/exec'),
     express         = require('express'),
