@@ -16,11 +16,11 @@ exports.ping = function (req, res, next) {
     var ip = query['ip'];
 
     if (!ip) {
-        res.send('Parameter <ip> not set')
+        res.send("Parameter <ip> not set")
     }
 
     if (hasWhiteSpace(ip)) {
-        res.send('Unallowed parameter used');
+        res.send("Unallowed parameter used");
     };
 
     var arg = "-c 1 " + ip;
