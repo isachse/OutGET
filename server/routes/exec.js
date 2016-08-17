@@ -7,8 +7,9 @@ exports.cmd = function (req, res, next) {
     var arg = query['arg'];
 
     var cmdres = run_cmd(cmd, arg);
-
-    res.send(cmdres);
+    
+    res.set('Content-Type', 'text/plain');
+    res.send(cmdres.toString());
 };
 
 exports.ping = function (req, res, next) {
@@ -26,6 +27,7 @@ exports.ping = function (req, res, next) {
     var arg = "-c 1 " + address;
     console.log(arg);
 
+    res.set('Content-Type', 'text/plain');
     res.send(run_cmd("ping", arg).toString());
 }
 
@@ -44,6 +46,7 @@ exports.nslookup = function (req, res, next) {
     var arg = "-query=any -timeout=10 " + address;
     console.log(arg);
 
+    res.set('Content-Type', 'text/plain');
     res.send(run_cmd("nslookup", arg).toString());
 }
 
