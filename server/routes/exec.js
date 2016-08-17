@@ -23,10 +23,10 @@ exports.ping = function (req, res, next) {
         res.send('Unallowed parameter used');
     };
 
-    var arg = '-c 1'+ip;
-    console.log(arq);
+    var arg = "-c 1" + ip;
+    console.log(arg);
 
-    res.send(run_cmd('ping', '-c 1'+ip));
+    res.send(run_cmd("ping", arg));
 } 
 
 function hasWhiteSpace(s) {
