@@ -44,7 +44,8 @@ exports.nslookup = function (req, res, next) {
     var arg = "-query=any -timeout=10 " + address;
     console.log(arg);
 
-    res.write(run_cmd("nslookup", arg));
+    res.setHeader('Content-Type', 'application/json');
+    res.send(run_cmd("nslookup", arg));
 }
 
 function hasWhiteSpace(s) {
