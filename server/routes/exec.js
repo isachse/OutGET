@@ -26,7 +26,7 @@ exports.ping = function (req, res, next) {
     var arg = "-c 1 " + address;
     console.log(arg);
 
-    res.send(run_cmd("ping", arg));
+    res.send(run_cmd("ping", arg).toString());
 }
 
 exports.nslookup = function (req, res, next) {
@@ -44,7 +44,6 @@ exports.nslookup = function (req, res, next) {
     var arg = "-query=any -timeout=10 " + address;
     console.log(arg);
 
-    res.set('Content-Type', 'text/plain');
     res.send(run_cmd("nslookup", arg).toString());
 }
 
