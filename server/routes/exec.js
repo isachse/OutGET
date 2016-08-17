@@ -16,7 +16,7 @@ exports.ping = function (req, res, next) {
     var address = query['address'];
 
     if (!address) {
-        res.send("Parameter <address> not set")
+        res.send("Parameter ADDRESS not set")
     }
 
     if (hasWhiteSpace(address)) {
@@ -34,7 +34,7 @@ exports.nslookup = function (req, res, next) {
     var address = query['address'];
 
     if (!address) {
-        res.send("Parameter <address> not set")
+        res.send("Parameter ADDRESS not set")
     }
 
     if (hasWhiteSpace(address)) {
