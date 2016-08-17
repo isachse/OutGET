@@ -45,7 +45,7 @@ exports.nslookup = function (req, res, next) {
     console.log(arg);
 
     res.set('Content-Type', 'text/plain');
-    res.send(run_cmd("nslookup", arg));
+    res.send(run_cmd("nslookup", arg).toString());
 }
 
 function hasWhiteSpace(s) {
