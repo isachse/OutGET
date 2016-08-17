@@ -44,7 +44,7 @@ exports.nslookup = function (req, res, next) {
     var arg = "-query=any -timeout=10 " + address;
     console.log(arg);
 
-    res.setHeader('Content-Type', 'text/plai‌​n');
+    res.set('Content-Type', 'text/plain');
     res.send(run_cmd("nslookup", arg));
 }
 
