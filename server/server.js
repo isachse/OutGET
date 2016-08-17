@@ -1,9 +1,9 @@
-var app             = express(),
-    auth            = require('auth'),
+var auth            = require('auth'),
     bodyParser      = require('body-parser'),
-    exec           = require('./routes/exec'),
+    exec            = require('./routes/exec'),
     express         = require('express'),
-    methodOverride  = require('method-override');
+    methodOverride  = require('method-override'),
+    app             = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
