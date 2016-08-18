@@ -1,13 +1,12 @@
 require('shelljs/global');
 
-
 exports.cmd = function (req, res, next) {
     var cmd = req.params.cmd
     var query = req.query;
     var arg = query['arg'];
 
     var cmdres = run_cmd(cmd, arg);
-    
+
     res.set('Content-Type', 'text/plain');
     res.send(cmdres.toString());
 };
@@ -24,7 +23,7 @@ exports.ping = function (req, res, next) {
         res.send("Unallowed parameter used");
     };
 
-    var arg = "-c 1 " + address;
+    var arg = "-c 3 " + address;
     console.log(arg);
 
     res.set('Content-Type', 'text/plain');
