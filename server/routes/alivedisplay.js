@@ -7,7 +7,7 @@ exports.setState = function (req, res, next) {
     var displayid = req.params.displayid;
      
     var file = "/tmp/" + displayid + ".json";
-    var obj = {name: 'JP'};
+    var obj = req.body;
      
     jsonfile.writeFile(file, obj, function (err) {
       console.error(err);
