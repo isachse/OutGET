@@ -20,18 +20,19 @@ exports.getState = function (req, res, next) {
     var query = req.query;
     var format = query['format'];
     var displayid = req.params.displayid;     
-    var file = "/tmp/" + displayid + ".json";
 
     if (format=="png") {
 
-        fs = require('fs');
-        image = fs.readFile(file);
+        var fs = require('fs');
+        var file = "/tmp/" + displayid + ".png";
+        var image = fs.readFile(file);
         res.set('Content-Type', 'image/png');
         res.send(image);
 
     } else {
 
         var jsonfile = require('jsonfile');
+        var file = "/tmp/" + displayid + ".json";
         res.set('Content-Type', 'application/json');
         res.send(jsonfile.readFileSync(file));        
 
