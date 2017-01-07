@@ -7,7 +7,7 @@ exports.setState = function (req, res, next) {
 
 exports.getState = function (req, res, next) {
     var query = req.query;
-    var arg = query['format'];
+    var format = query['format'];
 
     if (format=="png") {
         res.set('Content-Type', 'image/png');
