@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride());      // simulate DELETE and PUT
 
 app.post('/state/:displayid', auth.checkAuth, alivedisplay.setState);
-app.get('/state/:displayid'), auth.checkAuth, alivedisplay.getState);
+app.get('/state/:displayid', auth.checkAuth, alivedisplay.getState);
 app.get('/exec/:cmd', auth.checkAuth, exec.cmd);
 app.get('/ping', auth.checkAuth, exec.ping);
 app.get('/nslookup', auth.checkAuth, exec.nslookup);
