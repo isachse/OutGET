@@ -6,7 +6,7 @@ exports.setState = function (req, res, next) {
 
     var displayid = req.params.displayid;
      
-    var file = concat('/tmp/',displayid,'.json');
+    var file = "/tmp/" + displayid + ".json";
     var obj = {name: 'JP'};
      
     jsonfile.writeFile(file, obj, function (err) {
@@ -31,7 +31,7 @@ exports.getState = function (req, res, next) {
 
         var displayid = req.params.displayid;
          
-        var file = concat('/tmp/',displayid,'.json');
+        var file = "/tmp/" + displayid + ".json";
  
         res.set('Content-Type', 'application/json');
         res.send(jsonfile.readFileSync(file));        
