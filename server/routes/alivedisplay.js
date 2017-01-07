@@ -25,7 +25,7 @@ exports.getState = function (req, res, next) {
 
         var fs = require('fs');
         var file = "/tmp/" + displayid + ".png";
-        var image = fs.readFile(file);
+        var image = fs.readFileSync(file);
         res.set('Content-Type', 'image/png');
         res.send(image);
 
