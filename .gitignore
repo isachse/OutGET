@@ -2,3 +2,9 @@ node_modules
 .gitignore
 
 .DS_Store
+ca-crt.pem
+ds-ca-crt.pem
+ds-server-crt.pem
+ds-server-key.pem
+server-crt.pem
+server-key.pem
