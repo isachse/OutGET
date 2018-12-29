@@ -1,0 +1,1 @@
+(echo >/dev/tcp/$1/$2) &>/dev/null && echo "OK" || echo "ERROR"

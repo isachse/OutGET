@@ -1,5 +1,6 @@
 var auth            = require('./auth'),
     alivedisplay    = require('./routes/alivedisplay'),
+    webhook         = require('./routes/webhook'),
     bodyParser      = require('body-parser'),
     exec            = require('./routes/exec'),
     express         = require('express'),
@@ -17,6 +18,7 @@ app.get('/alivedisplay/:displayid/state', auth.checkAuth, alivedisplay.getState)
 app.get('/outget/exec/:cmd', auth.checkAuth, exec.cmd);
 app.get('/outget/ping', auth.checkAuth, exec.ping);
 app.get('/outget/nslookup', auth.checkAuth, exec.nslookup);
+app.post('/webhook',auth.checkAuth, webhook.receive);
 
 app.set('port', process.env.PORT || 80);
 
